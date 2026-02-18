@@ -13,7 +13,7 @@ A responsive one-page photography portfolio website designed to present:
 
 - `index.html` - Main portfolio page
 - `styles.css` - Layout, colors, responsive UI, and component styles
-- `script.js` - Mobile menu behavior, dynamic footer year, and contact form mailto action
+- `script.js` - Mobile menu behavior, gallery filters, active nav links, dynamic footer year, and contact form mailto action
 
 ## Run locally
 
@@ -32,6 +32,7 @@ Then visit `http://localhost:8080`.
 1. Replace gallery image URLs in `index.html` with your own photos.
 2. Update contact links and email (`hello@lokeshphotos.com`) with your real details.
 3. Edit service descriptions and pricing text based on your current packages.
+4. Update the "Start Here" cards so visitors are directed to your highest-priority offers.
 
 ## Suggested next improvements
 
