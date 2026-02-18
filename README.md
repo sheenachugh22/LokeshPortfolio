@@ -1,4 +1,4 @@
-# Lokesh Photography Visiting Card Website
+# Tranquil Lokesh Visiting Card Website
 
 A compact one-page digital visiting card for photography services and collaborations.
 
@@ -32,7 +32,7 @@ Then visit `http://localhost:8080`.
 
 1. Update contact links and email (`hello@lokeshphotos.com`) with your real details.
 2. Edit the service chips and "Best for" list in `index.html`.
-3. Replace the initials avatar (`LP`) with your logo or profile image if needed.
+3. Replace the initials avatar (`TL`) with your logo or profile image if needed.
 
 ## Suggested next improvements
 
