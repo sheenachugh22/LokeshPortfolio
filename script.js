@@ -22,9 +22,9 @@
         if (labelEl) labelEl.textContent = "Copied!";
         else copyBtn.textContent = "Copied!";
 
-        copyBtn.style.borderColor = "rgba(225, 48, 108, 0.5)";
-        copyBtn.style.color = "#e1306c";
-        copyBtn.style.background = "rgba(225, 48, 108, 0.08)";
+        copyBtn.style.borderColor = "rgba(74, 158, 142, 0.5)";
+        copyBtn.style.color = "#4a9e8e";
+        copyBtn.style.background = "rgba(74, 158, 142, 0.08)";
 
         setTimeout(function () {
           if (labelEl) labelEl.textContent = defaultLabel;
@@ -142,8 +142,8 @@
 
       borderGlow.style.background =
         "radial-gradient(circle at " + x + "% " + y + "%, " +
-        "rgba(225, 48, 108, 0.35), " +
-        "rgba(131, 58, 180, 0.15) 40%, " +
+        "rgba(201, 169, 110, 0.3), " +
+        "rgba(74, 158, 142, 0.15) 40%, " +
         "transparent 70%)";
     });
 
@@ -158,7 +158,7 @@
     rings.forEach(function (ring) {
       ring.addEventListener("mouseenter", function () {
         ring.style.transform = "scale(1.1)";
-        ring.style.boxShadow = "0 0 24px rgba(225, 48, 108, 0.3)";
+        ring.style.boxShadow = "0 0 24px rgba(201, 169, 110, 0.25)";
       });
       ring.addEventListener("mouseleave", function () {
         ring.style.transform = "";

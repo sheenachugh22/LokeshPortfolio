@@ -9,23 +9,23 @@
   --text-soft: #b8b0a4;
   --text-dim: #7a7268;
 
-  /* Instagram-inspired warm gradients */
-  --ig-1: #f77737;
-  --ig-2: #e1306c;
-  --ig-3: #c13584;
-  --ig-4: #833ab4;
-  --ig-5: #5851db;
-  --gradient-ig: linear-gradient(135deg, #f77737, #e1306c, #c13584, #833ab4);
-  --gradient-warm: linear-gradient(135deg, #c9a96e, #e0c585, #f0d89a);
-  --gradient-sunset: linear-gradient(135deg, #f5af19, #f12711, #c13584);
+  /* Warm gold + deep teal palette */
+  --gold: #c9a96e;
+  --gold-light: #e0c585;
+  --gold-soft: rgba(201, 169, 110, 0.12);
+  --amber: #d4944c;
+  --teal: #4a9e8e;
+  --teal-deep: #2d7a6d;
+  --slate: #4a5a7a;
+
+  --gradient-ring: linear-gradient(135deg, var(--amber), var(--gold), var(--teal), var(--slate));
+  --gradient-warm: linear-gradient(135deg, var(--gold), var(--gold-light), #f0d89a);
+  --gradient-accent: linear-gradient(135deg, var(--amber), var(--gold), var(--teal));
 
   /* Glass */
   --glass: rgba(255, 255, 255, 0.04);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-hover: rgba(255, 255, 255, 0.07);
-
-  --gold: #c9a96e;
-  --gold-soft: rgba(201, 169, 110, 0.12);
 
   --radius: 24px;
   --radius-sm: 14px;
@@ -83,13 +83,13 @@ a { color: inherit; text-decoration: none; }
 .blob-1 {
   width: 420px; height: 420px;
   top: -12%; left: -8%;
-  background: radial-gradient(circle, rgba(247, 119, 55, 0.14), transparent 70%);
+  background: radial-gradient(circle, rgba(212, 148, 76, 0.13), transparent 70%);
 }
 
 .blob-2 {
   width: 380px; height: 380px;
   top: 30%; right: -10%;
-  background: radial-gradient(circle, rgba(193, 53, 132, 0.11), transparent 70%);
+  background: radial-gradient(circle, rgba(74, 158, 142, 0.1), transparent 70%);
   animation-delay: -6s;
   animation-duration: 28s;
 }
@@ -97,7 +97,7 @@ a { color: inherit; text-decoration: none; }
 .blob-3 {
   width: 340px; height: 340px;
   bottom: -8%; left: 20%;
-  background: radial-gradient(circle, rgba(88, 81, 219, 0.09), transparent 70%);
+  background: radial-gradient(circle, rgba(74, 90, 122, 0.09), transparent 70%);
   animation-delay: -12s;
   animation-duration: 32s;
 }
@@ -162,11 +162,11 @@ a { color: inherit; text-decoration: none; }
   padding: 1px;
   background: linear-gradient(
     160deg,
-    rgba(247, 119, 55, 0.3),
-    rgba(225, 48, 108, 0.2) 30%,
+    rgba(212, 148, 76, 0.3),
+    rgba(201, 169, 110, 0.2) 30%,
     transparent 50%,
-    rgba(131, 58, 180, 0.15) 70%,
-    rgba(88, 81, 219, 0.25)
+    rgba(74, 158, 142, 0.2) 70%,
+    rgba(74, 90, 122, 0.25)
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -224,7 +224,7 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 1rem;
 }
 
-/* Avatar with IG-style gradient ring */
+/* Avatar with gradient ring */
 .avatar-wrap {
   position: relative;
   flex-shrink: 0;
@@ -234,7 +234,7 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  background: var(--gradient-ig);
+  background: var(--gradient-ring);
   animation: ringPulse 3s ease-in-out infinite;
 }
 
@@ -269,7 +269,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .gradient-text {
-  background: var(--gradient-ig);
+  background: var(--gradient-accent);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -294,8 +294,8 @@ a { color: inherit; text-decoration: none; }
 .dot {
   width: 3px; height: 3px;
   border-radius: 50%;
-  background: var(--ig-2);
-  opacity: 0.6;
+  background: var(--teal);
+  opacity: 0.7;
 }
 
 .hero-bio {
@@ -309,7 +309,7 @@ a { color: inherit; text-decoration: none; }
   margin-inline: auto;
 }
 
-/* ---- HIGHLIGHTS (IG story circles) ---- */
+/* ---- HIGHLIGHTS (story circles) ---- */
 .highlights {
   display: flex;
   justify-content: center;
@@ -342,13 +342,13 @@ a { color: inherit; text-decoration: none; }
   width: 56px; height: 56px;
   border-radius: 50%;
   padding: 2px;
-  background: var(--gradient-ig);
+  background: var(--gradient-ring);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .highlight:hover .highlight-ring {
   transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(225, 48, 108, 0.25);
+  box-shadow: 0 0 20px rgba(201, 169, 110, 0.25);
 }
 
 .highlight-inner {
@@ -387,10 +387,10 @@ a { color: inherit; text-decoration: none; }
 
 .pill:hover {
   background: var(--glass-hover);
-  border-color: rgba(225, 48, 108, 0.25);
+  border-color: rgba(74, 158, 142, 0.3);
   color: var(--text);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(225, 48, 108, 0.08);
+  box-shadow: 0 4px 16px rgba(74, 158, 142, 0.08);
 }
 
 /* ---- CTA ROW ---- */
@@ -401,7 +401,7 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 1.5rem;
 }
 
-/* Instagram button - gradient, prominent */
+/* Instagram button - warm gradient, prominent */
 .btn-ig {
   display: flex;
   align-items: center;
@@ -409,7 +409,7 @@ a { color: inherit; text-decoration: none; }
   gap: 0.5rem;
   padding: 0.75rem 1.25rem;
   border-radius: var(--radius-sm);
-  background: var(--gradient-ig);
+  background: linear-gradient(135deg, var(--amber), var(--gold), var(--teal-deep));
   background-size: 200% 200%;
   animation: igShimmer 4s ease-in-out infinite;
   color: #fff;
@@ -419,12 +419,12 @@ a { color: inherit; text-decoration: none; }
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 20px rgba(225, 48, 108, 0.25);
+  box-shadow: 0 4px 20px rgba(201, 169, 110, 0.2);
 }
 
 .btn-ig:hover {
   transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 8px 32px rgba(225, 48, 108, 0.35);
+  box-shadow: 0 8px 32px rgba(201, 169, 110, 0.3);
   color: #fff;
 }
 
@@ -633,7 +633,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ---- SELECTION ---- */
 ::selection {
-  background: rgba(225, 48, 108, 0.3);
+  background: rgba(201, 169, 110, 0.3);
   color: var(--text);
 }
 
@@ -641,13 +641,13 @@ a { color: inherit; text-decoration: none; }
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--ig-1), var(--ig-2), var(--ig-4));
+  background: linear-gradient(to bottom, var(--amber), var(--gold), var(--teal));
   border-radius: 999px;
 }
 
 /* ---- FOCUS ---- */
 :focus-visible {
-  outline: 2px solid var(--ig-2);
+  outline: 2px solid var(--gold);
   outline-offset: 2px;
   border-radius: 4px;
 }
