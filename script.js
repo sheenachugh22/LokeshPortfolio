@@ -1,5 +1,5 @@
 /* ============================================
-   LOKESH PHOTOGRAPHY - INTERACTIONS
+   TRANQUIL LOKESH - INTERACTIONS
    ============================================ */
 
 (function () {
@@ -73,9 +73,9 @@
   // ---- Staggered reveal for chips, feature cards, and buttons ----
   function staggerReveal() {
     var groups = [
-      { selector: ".chip", baseDelay: 600 },
-      { selector: ".feature-card", baseDelay: 800 },
-      { selector: ".action-row .btn", baseDelay: 950 }
+      { selector: ".chip", baseDelay: 400 },
+      { selector: ".tag", baseDelay: 500 },
+      { selector: ".action-row .btn", baseDelay: 600 }
     ];
 
     groups.forEach(function (group) {
@@ -148,8 +148,8 @@
       var rect = card.getBoundingClientRect();
       var x = (e.clientX - rect.left) / rect.width;
       var y = (e.clientY - rect.top) / rect.height;
-      var tiltX = (y - 0.5) * 3;
-      var tiltY = (x - 0.5) * -3;
+      var tiltX = (y - 0.5) * 2;
+      var tiltY = (x - 0.5) * -2;
 
       card.style.transform =
         "perspective(1000px) rotateX(" + tiltX + "deg) rotateY(" + tiltY + "deg)";
