@@ -1,176 +1,180 @@
 /* ============================================
-   TRANQUIL LOKESH - INTERACTIONS
+   TRANQUIL LOKESH - INSTAGRAMABLE INTERACTIONS
    ============================================ */
 
 (function () {
   "use strict";
 
-  // ---- Footer year ----
-  const yearEl = document.querySelector("#year");
-  if (yearEl) {
-    yearEl.textContent = String(new Date().getFullYear());
-  }
+  var yearEl = document.querySelector("#year");
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   // ---- Copy email ----
-  const copyEmailButton = document.querySelector("[data-copy-email]");
-  const contactEmail = "hello@lokeshphotos.com";
+  var copyBtn = document.querySelector("[data-copy-email]");
+  var email = "hello@lokeshphotos.com";
 
-  if (copyEmailButton) {
-    const labelEl = copyEmailButton.querySelector(".copy-label");
-    const defaultLabel = labelEl ? labelEl.textContent : copyEmailButton.textContent;
+  if (copyBtn) {
+    var labelEl = copyBtn.querySelector(".copy-label");
+    var defaultLabel = labelEl ? labelEl.textContent : copyBtn.textContent;
 
-    copyEmailButton.addEventListener("click", async () => {
+    copyBtn.addEventListener("click", async function () {
       try {
-        await navigator.clipboard.writeText(contactEmail);
-        if (labelEl) {
-          labelEl.textContent = "Copied!";
-        } else {
-          copyEmailButton.textContent = "Copied!";
-        }
+        await navigator.clipboard.writeText(email);
+        if (labelEl) labelEl.textContent = "Copied!";
+        else copyBtn.textContent = "Copied!";
 
-        copyEmailButton.style.borderColor = "var(--accent-gold)";
-        copyEmailButton.style.color = "var(--accent-gold)";
+        copyBtn.style.borderColor = "rgba(225, 48, 108, 0.5)";
+        copyBtn.style.color = "#e1306c";
+        copyBtn.style.background = "rgba(225, 48, 108, 0.08)";
 
-        setTimeout(() => {
-          if (labelEl) {
-            labelEl.textContent = defaultLabel;
-          } else {
-            copyEmailButton.textContent = defaultLabel;
-          }
-          copyEmailButton.style.borderColor = "";
-          copyEmailButton.style.color = "";
-        }, 1800);
-      } catch (error) {
-        window.location.href = "mailto:" + contactEmail;
+        setTimeout(function () {
+          if (labelEl) labelEl.textContent = defaultLabel;
+          else copyBtn.textContent = defaultLabel;
+          copyBtn.style.borderColor = "";
+          copyBtn.style.color = "";
+          copyBtn.style.background = "";
+        }, 2000);
+      } catch (err) {
+        window.location.href = "mailto:" + email;
       }
     });
   }
 
-  // ---- Entrance animations with Intersection Observer ----
+  // ---- Entrance animations ----
   function revealElements() {
-    const fadeEls = document.querySelectorAll(".anim-fade-up");
+    var els = document.querySelectorAll(".anim-fade-up");
 
     if (!("IntersectionObserver" in window)) {
-      fadeEls.forEach(function (el) { el.classList.add("is-visible"); });
+      els.forEach(function (el) { el.classList.add("is-visible"); });
       return;
     }
 
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -30px 0px" }
-    );
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -20px 0px" });
 
-    fadeEls.forEach(function (el) { observer.observe(el); });
+    els.forEach(function (el) { observer.observe(el); });
   }
 
-  // ---- Staggered reveal for chips, feature cards, and buttons ----
-  function staggerReveal() {
+  // ---- Staggered child animations ----
+  function staggerChildren() {
     var groups = [
-      { selector: ".chip", baseDelay: 400 },
-      { selector: ".tag", baseDelay: 500 },
-      { selector: ".action-row .btn", baseDelay: 600 }
+      { selector: ".highlight", base: 300, step: 80 },
+      { selector: ".pill", base: 450, step: 70 },
+      { selector: ".cta-row .btn-ig, .cta-row .btn-glow, .cta-row .btn-glass", base: 550, step: 80 }
     ];
 
-    groups.forEach(function (group) {
-      var items = document.querySelectorAll(group.selector);
+    groups.forEach(function (g) {
+      var items = document.querySelectorAll(g.selector);
       items.forEach(function (item, i) {
         setTimeout(function () {
           item.classList.add("is-visible");
-        }, group.baseDelay + i * 100);
+        }, g.base + i * g.step);
       });
     });
   }
 
-  // ---- Subtle parallax on orbs (mouse-driven, desktop only) ----
-  function initParallax() {
-    if (window.matchMedia("(pointer: fine)").matches === false) return;
+  // ---- Cursor glow (desktop) ----
+  function initCursorGlow() {
+    if (!window.matchMedia("(pointer: fine)").matches) return;
 
-    var orbs = document.querySelectorAll(".orb");
-    if (orbs.length === 0) return;
+    var glow = document.getElementById("cursorGlow");
+    if (!glow) return;
+
+    var raf = false;
+
+    document.addEventListener("mousemove", function (e) {
+      if (raf) return;
+      raf = true;
+      requestAnimationFrame(function () {
+        glow.style.left = e.clientX + "px";
+        glow.style.top = e.clientY + "px";
+        if (!glow.classList.contains("active")) glow.classList.add("active");
+        raf = false;
+      });
+    });
+
+    document.addEventListener("mouseleave", function () {
+      glow.classList.remove("active");
+    });
+  }
+
+  // ---- Blob parallax (desktop) ----
+  function initBlobParallax() {
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+
+    var blobs = document.querySelectorAll(".blob");
+    if (!blobs.length) return;
 
     var ticking = false;
 
     document.addEventListener("mousemove", function (e) {
       if (ticking) return;
       ticking = true;
-
       requestAnimationFrame(function () {
-        var x = (e.clientX / window.innerWidth - 0.5) * 2;
-        var y = (e.clientY / window.innerHeight - 0.5) * 2;
-
-        orbs.forEach(function (orb, i) {
-          var factor = (i + 1) * 8;
-          orb.style.transform =
-            "translate(" + (x * factor) + "px, " + (y * factor) + "px)";
+        var nx = (e.clientX / window.innerWidth - 0.5) * 2;
+        var ny = (e.clientY / window.innerHeight - 0.5) * 2;
+        blobs.forEach(function (b, i) {
+          var f = (i + 1) * 6;
+          b.style.transform = "translate(" + (nx * f) + "px, " + (ny * f) + "px)";
         });
-
         ticking = false;
       });
     });
   }
 
-  // ---- Magnetic button hover effect ----
-  function initMagneticButtons() {
-    if (window.matchMedia("(pointer: fine)").matches === false) return;
+  // ---- Card hover glow shift ----
+  function initCardGlow() {
+    if (!window.matchMedia("(pointer: fine)").matches) return;
 
-    var buttons = document.querySelectorAll(".btn");
-
-    buttons.forEach(function (btn) {
-      btn.addEventListener("mousemove", function (e) {
-        var rect = btn.getBoundingClientRect();
-        var x = e.clientX - rect.left - rect.width / 2;
-        var y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform =
-          "translateY(-2px) translate(" + (x * 0.15) + "px, " + (y * 0.15) + "px)";
-      });
-
-      btn.addEventListener("mouseleave", function () {
-        btn.style.transform = "";
-      });
-    });
-  }
-
-  // ---- Card tilt effect on hover (subtle) ----
-  function initCardTilt() {
-    if (window.matchMedia("(pointer: fine)").matches === false) return;
-
-    var card = document.querySelector(".visiting-card");
-    if (!card) return;
+    var card = document.querySelector(".card");
+    var borderGlow = document.querySelector(".card-border-glow");
+    if (!card || !borderGlow) return;
 
     card.addEventListener("mousemove", function (e) {
       var rect = card.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width;
-      var y = (e.clientY - rect.top) / rect.height;
-      var tiltX = (y - 0.5) * 2;
-      var tiltY = (x - 0.5) * -2;
+      var x = ((e.clientX - rect.left) / rect.width) * 100;
+      var y = ((e.clientY - rect.top) / rect.height) * 100;
 
-      card.style.transform =
-        "perspective(1000px) rotateX(" + tiltX + "deg) rotateY(" + tiltY + "deg)";
+      borderGlow.style.background =
+        "radial-gradient(circle at " + x + "% " + y + "%, " +
+        "rgba(225, 48, 108, 0.35), " +
+        "rgba(131, 58, 180, 0.15) 40%, " +
+        "transparent 70%)";
     });
 
     card.addEventListener("mouseleave", function () {
-      card.style.transform = "";
-      card.style.transition = "transform 0.5s ease";
-      setTimeout(function () {
-        card.style.transition = "";
-      }, 500);
+      borderGlow.style.background = "";
     });
   }
 
-  // ---- Initialize everything ----
+  // ---- Highlight ring pop on hover ----
+  function initHighlightPop() {
+    var rings = document.querySelectorAll(".highlight-ring");
+    rings.forEach(function (ring) {
+      ring.addEventListener("mouseenter", function () {
+        ring.style.transform = "scale(1.1)";
+        ring.style.boxShadow = "0 0 24px rgba(225, 48, 108, 0.3)";
+      });
+      ring.addEventListener("mouseleave", function () {
+        ring.style.transform = "";
+        ring.style.boxShadow = "";
+      });
+    });
+  }
+
+  // ---- Init ----
   function init() {
     revealElements();
-    staggerReveal();
-    initParallax();
-    initMagneticButtons();
-    initCardTilt();
+    staggerChildren();
+    initCursorGlow();
+    initBlobParallax();
+    initCardGlow();
+    initHighlightPop();
   }
 
   if (document.readyState === "loading") {
