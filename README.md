@@ -1,19 +1,20 @@
-# Lokesh Photography Portfolio
+# Lokesh Photography Visiting Card Website
 
-A responsive one-page photography portfolio website designed to present:
+A compact one-page digital visiting card for photography services and collaborations.
+
+It presents:
 
 - Nature photography
 - City life photography
-- Portrait shoots
-- Event/live photography
+- Portrait and event shoots
 - Real estate photography
-- Collaboration opportunities with photographers and real estate agents
+- Collaboration interest with photographers and real estate agents
 
 ## Files
 
-- `index.html` - Main portfolio page
-- `styles.css` - Layout, colors, responsive UI, and component styles
-- `script.js` - Mobile menu behavior, gallery filters, active nav links, dynamic footer year, and contact form mailto action
+- `index.html` - Single-page visiting card content
+- `styles.css` - Card-style visual design and responsive layout
+- `script.js` - Footer year and "Copy Email" interaction
 
 ## Run locally
 
@@ -29,13 +30,12 @@ Then visit `http://localhost:8080`.
 
 ## Customize quickly
 
-1. Replace gallery image URLs in `index.html` with your own photos.
-2. Update contact links and email (`hello@lokeshphotos.com`) with your real details.
-3. Edit service descriptions and pricing text based on your current packages.
-4. Update the "Start Here" cards so visitors are directed to your highest-priority offers.
+1. Update contact links and email (`hello@lokeshphotos.com`) with your real details.
+2. Edit the service chips and "Best for" list in `index.html`.
+3. Replace the initials avatar (`LP`) with your logo or profile image if needed.
 
 ## Suggested next improvements
 
-- Add your real logo and social links
-- Connect the form to a backend service (Formspree, Netlify Forms, or custom API)
-- Add separate case-study pages for portraits and real estate projects
+- Add your real Instagram/LinkedIn profile URLs
+- Add WhatsApp and phone call buttons
+- Deploy to Netlify, Vercel, or GitHub Pages
