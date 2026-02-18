@@ -11,78 +11,191 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
     rel="stylesheet"
   >
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
+
+  <!-- Grain overlay for artistic texture -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Floating decorative elements -->
+  <div class="deco-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
   <main class="page">
-    <article class="visiting-card" aria-label="Lokesh Photography visiting card">
-      <p class="availability-badge">Open for shoots and collaborations</p>
 
-      <div class="identity">
-        <div class="avatar" aria-hidden="true">LP</div>
-        <div class="identity-text">
-          <h1>Lokesh Photography</h1>
-          <p class="tagline">Nature | City Life | Portraits | Real Estate</p>
-        </div>
-      </div>
-
-      <p class="intro">
-        I capture real moments for people, brands, and properties. Available for portrait shoots, events,
-        real estate listings, and creative collaborations.
+    <!-- Hero / Identity Section -->
+    <header class="hero anim-fade-up">
+      <p class="availability-badge anim-fade-up" data-delay="1">
+        <span class="badge-dot"></span>
+        Open for shoots &amp; collaborations
       </p>
 
-      <section class="card-block">
-        <h2>Services</h2>
+      <div class="identity">
+        <div class="avatar-ring">
+          <div class="avatar" aria-hidden="true">LP</div>
+        </div>
+        <div class="identity-text">
+          <h1 class="display-name anim-fade-up" data-delay="2">
+            Lokesh<br><span class="accent-text">Photography</span>
+          </h1>
+          <p class="tagline anim-fade-up" data-delay="3">
+            <span class="tagline-separator"></span>
+            Nature
+            <span class="tagline-separator"></span>
+            City Life
+            <span class="tagline-separator"></span>
+            Portraits
+            <span class="tagline-separator"></span>
+            Real Estate
+            <span class="tagline-separator"></span>
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Card -->
+    <article class="visiting-card anim-fade-up" data-delay="4" aria-label="Lokesh Photography visiting card">
+
+      <!-- Artistic quote / intro -->
+      <blockquote class="intro-quote anim-fade-up" data-delay="5">
+        <p>
+          &ldquo;I capture real moments for people, brands, and properties.
+          Available for portrait shoots, events, real estate listings, and
+          creative collaborations.&rdquo;
+        </p>
+      </blockquote>
+
+      <!-- Decorative divider -->
+      <div class="artistic-divider" aria-hidden="true">
+        <span></span>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M10 0L12.245 7.755L20 10L12.245 12.245L10 20L7.755 12.245L0 10L7.755 7.755L10 0Z" fill="currentColor"/>
+        </svg>
+        <span></span>
+      </div>
+
+      <!-- Services -->
+      <section class="card-block anim-fade-up" data-delay="5">
+        <h2 class="section-title">
+          <span class="section-number">01</span>
+          Services
+        </h2>
         <ul class="chip-list">
-          <li>Portrait Shoots</li>
-          <li>Live Event Photography</li>
-          <li>Real Estate Photography</li>
-          <li>City and Nature Projects</li>
+          <li class="chip">
+            <span class="chip-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+            Portrait Shoots
+          </li>
+          <li class="chip">
+            <span class="chip-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+            </span>
+            Live Event Photography
+          </li>
+          <li class="chip">
+            <span class="chip-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </span>
+            Real Estate Photography
+          </li>
+          <li class="chip">
+            <span class="chip-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </span>
+            City &amp; Nature Projects
+          </li>
         </ul>
       </section>
 
-      <section class="card-block">
-        <h2>Best for</h2>
-        <div class="mini-grid">
-          <p>Personal branding</p>
-          <p>Lifestyle shoots</p>
-          <p>Property listings</p>
-          <p>Photographer collaborations</p>
+      <!-- Best For -->
+      <section class="card-block anim-fade-up" data-delay="6">
+        <h2 class="section-title">
+          <span class="section-number">02</span>
+          Best For
+        </h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="feature-accent"></span>
+            <p>Personal branding</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-accent"></span>
+            <p>Lifestyle shoots</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-accent"></span>
+            <p>Property listings</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-accent"></span>
+            <p>Photographer collaborations</p>
+          </div>
         </div>
       </section>
 
-      <section class="card-block">
-        <h2>Contact</h2>
-        <p class="small-copy">Collaborating with photographers and real estate agents for recurring assignments.</p>
+      <!-- Decorative divider -->
+      <div class="artistic-divider" aria-hidden="true">
+        <span></span>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M10 0L12.245 7.755L20 10L12.245 12.245L10 20L7.755 12.245L0 10L7.755 7.755L10 0Z" fill="currentColor"/>
+        </svg>
+        <span></span>
+      </div>
+
+      <!-- Contact -->
+      <section class="card-block contact-block anim-fade-up" data-delay="7">
+        <h2 class="section-title">
+          <span class="section-number">03</span>
+          Get In Touch
+        </h2>
+        <p class="contact-note">
+          Collaborating with photographers and real estate agents for recurring assignments.
+        </p>
         <div class="action-row">
-          <a class="btn btn-primary" href="mailto:hello@lokeshphotos.com?subject=Photography%20Inquiry">Email</a>
-          <button type="button" class="btn btn-secondary" data-copy-email>Copy Email</button>
-          <a class="btn btn-secondary" href="#" aria-label="Instagram profile">Instagram</a>
+          <a class="btn btn-primary" href="mailto:hello@lokeshphotos.com?subject=Photography%20Inquiry">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Send Email
+          </a>
+          <button type="button" class="btn btn-outline" data-copy-email>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span class="copy-label">Copy Email</span>
+          </button>
+          <a class="btn btn-outline" href="#" aria-label="Instagram profile">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
         </div>
       </section>
 
-      <div class="info-strip">
-        <div>
-          <span>Email</span>
+      <!-- Info Strip -->
+      <div class="info-strip anim-fade-up" data-delay="8">
+        <div class="info-item">
+          <span class="info-label">Email</span>
           <a href="mailto:hello@lokeshphotos.com">hello@lokeshphotos.com</a>
         </div>
-        <div>
-          <span>Turnaround</span>
+        <div class="info-item">
+          <span class="info-label">Turnaround</span>
           <p>48h for real estate shoots</p>
         </div>
-        <div>
-          <span>Availability</span>
-          <p>Weekday and weekend sessions</p>
+        <div class="info-item">
+          <span class="info-label">Availability</span>
+          <p>Weekday &amp; weekend sessions</p>
         </div>
       </div>
     </article>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer anim-fade-up" data-delay="9">
+    <div class="footer-line" aria-hidden="true"></div>
     <p>Copyright <span id="year"></span> Lokesh Photography. All rights reserved.</p>
   </footer>
 </body>
